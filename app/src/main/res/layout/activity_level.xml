@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שלום: שם משתמש"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnLevel0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שאלות ברמה קלה"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="185dp" />
+
+    <Button
+        android:id="@+id/btnLevel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ְשאלות ברמה בינונית"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="252dp"
+        tools:layout_editor_absoluteY="256dp" />
+
+    <Button
+        android:id="@+id/btnLevel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שאלות ברמה קשה"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="264dp"
+        tools:layout_editor_absoluteY="324dp" />
+
+    <Switch
+        android:id="@+id/switchTextSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="כתב גדול"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="302dp"
+        tools:layout_editor_absoluteY="116dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
