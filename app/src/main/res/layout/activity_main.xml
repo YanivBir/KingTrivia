@@ -6,11 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
     <TextView
         android:id="@+id/txtId"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello Guest!"
+        android:layout_height="37dp"
+        android:text="Hello Guest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,16 +28,27 @@
         android:layout_height="wrap_content"
         android:text="Login"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="283dp"
-        tools:layout_editor_absoluteY="117dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="174dp" />
 
-    <Button
-        android:id="@+id/btnRegisterAct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="283dp"
-        tools:layout_editor_absoluteY="188dp" />
+        <Button
+            android:id="@+id/btnRegisterAct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="174dp" />
+
+        <Switch
+            android:id="@+id/switchTextSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="כתב גדול"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="302dp"
+            tools:layout_editor_absoluteY="116dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

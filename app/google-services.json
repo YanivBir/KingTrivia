@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "978354360840",
+    "firebase_url": "https://kingtrivia-9eb72.firebaseio.com",
+    "project_id": "kingtrivia-9eb72",
+    "storage_bucket": "kingtrivia-9eb72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978354360840:android:fd0e760d341f6fee0eb7bd",
+        "android_client_info": {
+          "package_name": "com.example.kingtrivia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978354360840-2tgcv3g5kahkprb14u1cva8rlueg5h1j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kingtrivia",
+            "certificate_hash": "2659d7742b37a1ea605903e342a7ffed12a13aef"
+          }
+        },
+        {
+          "client_id": "978354360840-4f2jtrfgbont9k8ldighd5jcivskp8vj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdYekr_zmXorBljaARU8jecZOxh6I--qs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978354360840-4f2jtrfgbont9k8ldighd5jcivskp8vj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
