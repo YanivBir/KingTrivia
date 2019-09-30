@@ -50,7 +50,7 @@
 
         <EditText
             android:id="@+id/txt_question"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:imeOptions="actionSend"
             android:inputType="text"
@@ -70,7 +70,7 @@
 
         <EditText
             android:id="@+id/txt_ans1"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:imeOptions="actionSend"
             android:inputType="text"
@@ -90,7 +90,7 @@
 
         <EditText
             android:id="@+id/txt_ans2"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:imeOptions="actionSend"
             android:inputType="text"
@@ -110,7 +110,7 @@
 
         <EditText
             android:id="@+id/txt_ans3"
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="65dp"
             android:imeOptions="actionSend"
             android:inputType="text"

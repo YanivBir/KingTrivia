@@ -114,9 +114,6 @@ public class RegisterActivity extends AppCompatActivity{
                             //startActivity(new Intent(RegisterActivity.this, LevelActiviy.class));
                            // finish();
 
-                            // String id = databaseUsers.push().getKey();
-                            //User user = new User(firebaseAuth.getUid(), 1);
-                           /// int isAdmin = 0 ;
                             User u1 = new User(0);
                             databaseUsers.child("users").child(firebaseAuth.getCurrentUser().getUid()).setValue(u1);
                             Toast.makeText(RegisterActivity.this, "User saved to DB.", Toast.LENGTH_SHORT).show();

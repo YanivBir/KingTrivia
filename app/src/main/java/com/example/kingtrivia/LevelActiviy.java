@@ -65,7 +65,7 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), AdminActivity.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 

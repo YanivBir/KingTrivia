@@ -19,7 +19,7 @@ public class AdminActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), NewQuestionActivity.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
 
@@ -29,7 +29,7 @@ public class AdminActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), UpdateQuestionActivity.class);
                 startActivity(i);
-                finish();
+                //finish();
             }
         });
     }

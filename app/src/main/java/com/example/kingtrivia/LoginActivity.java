@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity{
     private EditText mPasswordField;
     private Button mLoginButton;
 
-    private ProgressDialog progressDialog;
+   // private ProgressDialog progressDialog;
 
 
     @Override
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity{
         mPasswordField = findViewById(R.id.txt_password);
         mLoginButton = findViewById(R.id.btnLogin);
 
-        progressDialog = new ProgressDialog(this);
+       // progressDialog = new ProgressDialog(this);
 
         final Button btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
