@@ -48,6 +48,13 @@
         tools:layout_editor_absoluteY="324dp" />
 
         <Button
+            android:id="@+id/btnAdminInter"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:text="Admin interface"
+            android:visibility="invisible"/>
+
+        <Button
             android:id="@+id/btnLogout"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
