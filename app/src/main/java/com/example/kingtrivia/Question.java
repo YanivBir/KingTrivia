@@ -9,6 +9,9 @@ public class Question {
     private String ans3;
     private int isActive;
 
+    public Question() {
+    }
+
     public Question(int id, int level, String theQuestion, String ans1, String ans2, String ans3, int isActive) {
         this.id = id;
         this.level = level;

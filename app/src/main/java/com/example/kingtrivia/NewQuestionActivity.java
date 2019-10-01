@@ -22,7 +22,7 @@ public class NewQuestionActivity extends AppCompatActivity {
     private EditText ans1Field;
     private EditText ans2Field;
     private EditText ans3Field;
-    private int maxid =0;
+    private int maxid =1;
     private DatabaseReference reffDbQuestions;
 
     @Override
@@ -42,7 +42,7 @@ public class NewQuestionActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists())
-                    maxid= (int) dataSnapshot.getChildrenCount();
+                    maxid= (int) dataSnapshot.getChildrenCount() +1;
             }
 
             @Override
@@ -100,17 +100,16 @@ public class NewQuestionActivity extends AppCompatActivity {
             ans3Field.setError(null);
         }
 
-
         return result;
     }
 
     private void registerQuestion() {
         Question q1 = new Question(maxid,  Integer.parseInt(levelQuesField.getText().toString().trim()),
-                questionField.getText().toString().trim(),
-                ans1Field.getText().toString().trim(), ans2Field.getText().toString().trim(),
-                ans3Field.getText().toString().trim(), 1);
+        questionField.getText().toString().trim(),
+        ans1Field.getText().toString().trim(), ans2Field.getText().toString().trim(),
+        ans3Field.getText().toString().trim(), 1);
 
-        reffDbQuestions.child(String.valueOf(maxid+1)).setValue(q1);
+        reffDbQuestions.child(String.valueOf(maxid)).setValue(q1);
 
         Toast.makeText(getApplicationContext(), "Question added successfully", Toast.LENGTH_SHORT).show();
         finish();
