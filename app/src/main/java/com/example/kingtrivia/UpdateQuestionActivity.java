@@ -52,7 +52,7 @@ public class UpdateQuestionActivity extends AppCompatActivity{
         btnPrev = findViewById(R.id.btnPrev);
         btnNext = findViewById(R.id.btnNext);
 
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
+       // reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
 
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +62,12 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
                     questionNumField.setError("Required");
                 }
+                else if (TextUtils.isEmpty(questionLevelField.getText().toString()))
+                {
+                    questionLevelField.setError("Required");
+                }
                 else
-                    showQuestion(questionNumField.getText().toString());
+                    showQuestion(questionNumField.getText().toString(), questionLevelField.getText().toString());
             }
         });
 
@@ -73,11 +77,15 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
                     questionNumField.setError("Required");
                 }
+                else if (TextUtils.isEmpty(questionLevelField.getText().toString()))
+                {
+                    questionLevelField.setError("Required");
+                }
                 else{
                     int questionId = Integer.parseInt(questionNumField.getText().toString());
                     if (questionId >1)
                         questionId--;
-                    showQuestion(String.valueOf(questionId));
+                    showQuestion(String.valueOf(questionId), String.valueOf(question.getLevel()));
                 }
             }
         });
@@ -88,10 +96,14 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
                     questionNumField.setError("Required");
                 }
+                else if (TextUtils.isEmpty(questionLevelField.getText().toString()))
+                {
+                    questionLevelField.setError("Required");
+                }
                 else{
                     int questionId = Integer.parseInt(questionNumField.getText().toString());
                     questionId++;
-                    showQuestion(String.valueOf(questionId));
+                    showQuestion(String.valueOf(questionId), String.valueOf(question.getLevel()));
                 }
             }
         });
@@ -108,7 +120,7 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                     question.setIsActive(1);
                 }
 
-                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+String.valueOf(question.getLevel()));
                 reffDbQuestions.child(String.valueOf(question.getId())).child("isActive").setValue(question.getIsActive());
                 Toast.makeText(getApplicationContext(), "Question active status updated successfully", Toast.LENGTH_SHORT).show();
             }
@@ -120,22 +132,23 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                 if (!validateForm())
                     return;
 
-                question.setLevel(Integer.parseInt(questionLevelField.getText().toString().trim()));
+                //question.setLevel(Integer.parseInt(questionLevelField.getText().toString().trim()));
                 question.setTheQuestion(questionField.getText().toString().trim());
                 question.setAns1(ans1Field.getText().toString().trim());
                 question.setAns2(ans2Field.getText().toString().trim());
                 question.setAns3(ans3Field.getText().toString().trim());
 
-                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+String.valueOf(question.getLevel()));
                 reffDbQuestions.child(String.valueOf(question.getId())).setValue(question);
                 Toast.makeText(getApplicationContext(), "Question updated successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void showQuestion (String questionId)
+    private void showQuestion (String questionId, String questionLevel)
     {
-        reffDbQuestions=  FirebaseDatabase.getInstance().getReference().child("questions").child(questionId);
+        reffDbQuestions=  FirebaseDatabase.getInstance().getReference().child("questions").
+                child("level:"+questionLevel).child(questionId);
         reffDbQuestions.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

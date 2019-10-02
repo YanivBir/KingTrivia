@@ -22,7 +22,9 @@ public class NewQuestionActivity extends AppCompatActivity {
     private EditText ans1Field;
     private EditText ans2Field;
     private EditText ans3Field;
-    private int maxid =1;
+    private int maxid1 =1;
+    private int maxid2 =1;
+    private int maxid3 =1;
     private DatabaseReference reffDbQuestions;
 
     @Override
@@ -36,13 +38,40 @@ public class NewQuestionActivity extends AppCompatActivity {
         ans2Field = findViewById(R.id.txt_ans2);
         ans3Field = findViewById(R.id.txt_ans3);
 
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
-
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:1");
         reffDbQuestions.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists())
-                    maxid= (int) dataSnapshot.getChildrenCount() +1;
+                    maxid1= (int) dataSnapshot.getChildrenCount() +1;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:2");
+        reffDbQuestions.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists())
+                    maxid2= (int) dataSnapshot.getChildrenCount() +1;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:3");
+        reffDbQuestions.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists())
+                    maxid3= (int) dataSnapshot.getChildrenCount() +1;
             }
 
             @Override
@@ -104,12 +133,24 @@ public class NewQuestionActivity extends AppCompatActivity {
     }
 
     private void registerQuestion() {
-        Question q1 = new Question(maxid,  Integer.parseInt(levelQuesField.getText().toString().trim()),
+        Question q1 = new Question(0,  Integer.parseInt(levelQuesField.getText().toString().trim()),
         questionField.getText().toString().trim(),
         ans1Field.getText().toString().trim(), ans2Field.getText().toString().trim(),
         ans3Field.getText().toString().trim(), 1);
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
 
-        reffDbQuestions.child(String.valueOf(maxid)).setValue(q1);
+        if (levelQuesField.getText().toString().equals("1")) {
+            q1.setId(maxid1);
+            reffDbQuestions.child("level:" + levelQuesField.getText()).child(String.valueOf(maxid1)).setValue(q1);
+        }
+        else if (levelQuesField.getText().toString().equals("2")) {
+            q1.setId(maxid2);
+            reffDbQuestions.child("level:" + levelQuesField.getText()).child(String.valueOf(maxid2)).setValue(q1);
+        }
+        else {
+            q1.setId(maxid3);
+            reffDbQuestions.child("level:" + levelQuesField.getText()).child(String.valueOf(maxid3)).setValue(q1);
+        }
 
         Toast.makeText(getApplicationContext(), "Question added successfully", Toast.LENGTH_SHORT).show();
         finish();

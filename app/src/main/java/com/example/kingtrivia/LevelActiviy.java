@@ -26,6 +26,12 @@ public class LevelActiviy extends AppCompatActivity{
     private DatabaseReference databaseUsers;
     private String userId;
 
+    private Button btnLogout;
+    private Button btnAdmin;
+    private Button btnLevl0;
+    private Button btnLevl1;
+    private Button btnLevl2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +39,12 @@ public class LevelActiviy extends AppCompatActivity{
 
         firebaseAuth = FirebaseAuth.getInstance();
         databaseUsers = FirebaseDatabase.getInstance().getReference().child("users");
+
+        btnAdmin= findViewById(R.id.btnAdminInter);
+        btnLogout = findViewById(R.id.btnLogout);
+        btnLevl0 = findViewById(R.id.btnLevel0);
+        btnLevl1 = findViewById(R.id.btnLevel1);
+        btnLevl2 = findViewById(R.id.btnLevel2);
 
         //Get the bundle
         Bundle bundle = getIntent().getExtras();
@@ -43,7 +55,42 @@ public class LevelActiviy extends AppCompatActivity{
 
         this.userId = firebaseAuth.getCurrentUser().getUid();
 
-        final Button btnLogout = findViewById(R.id.btnLogout);
+        btnLevl0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), GameActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("level", "1");
+                //Add the bundle to the intent
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
+        btnLevl1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), GameActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("level", "2");
+                //Add the bundle to the intent
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
+        btnLevl2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), GameActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("level", "3");
+                //Add the bundle to the intent
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,8 +105,6 @@ public class LevelActiviy extends AppCompatActivity{
             }
         });
 
-
-        final Button btnAdmin= findViewById(R.id.btnAdminInter);
         btnAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,25 +131,5 @@ public class LevelActiviy extends AppCompatActivity{
                 //Log.e(TAG, "onCancelled", databaseError.toException());
             }
         });
-
-
-       /*databaseUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds: dataSnapshot.getChildren())
-                {
-                    User u1 = new User();
-                    if (ds.getKey().equals(userId)) {
-                        u1.setIsAdmin(ds.getValue(User.class).getIsAdmin());
-                        int i = u1.getIsAdmin(); //Just for beging
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
     }
 }

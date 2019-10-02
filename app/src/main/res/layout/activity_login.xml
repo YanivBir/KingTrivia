@@ -45,7 +45,7 @@
             android:layout_width="215dp"
             android:layout_height="wrap_content"
             android:imeOptions="actionSend"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:textSize="28dp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="89dp"

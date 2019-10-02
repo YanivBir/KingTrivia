@@ -24,6 +24,8 @@
         <activity android:name=".AdminActivity"/>
         <activity android:name=".NewQuestionActivity"/>
         <activity android:name=".UpdateQuestionActivity"/>
+        <activity android:name=".GameActivity"/>
+        <activity android:name=".EndGameActivity"/>
     </application>
 
 </manifest>
