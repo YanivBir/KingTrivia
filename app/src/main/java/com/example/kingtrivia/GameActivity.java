@@ -1,38 +1,21 @@
 package com.example.kingtrivia;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class GameActivity extends AppCompatActivity {
     private TextView mQuestionNumber;
@@ -46,7 +29,6 @@ public class GameActivity extends AppCompatActivity {
     public static final int QTNS_PER_LEVEL = 3; // change it to 10!
     public static final int DELAY = 800; // 5000 means 5 sec
 
-
     private Question[] questions;
     private int current_question;
     private String level;
@@ -55,6 +37,8 @@ public class GameActivity extends AppCompatActivity {
     private int wrongAnswers;
     private int questionCount;
     private  ArrayList<Integer> randomList;
+
+    private Button saveCorrectButton;
 
     private DatabaseReference reffDbQuestions;
 
@@ -77,8 +61,6 @@ public class GameActivity extends AppCompatActivity {
         mBtnAns2 = findViewById(R.id.btnAns2);
         mBtnAns3 = findViewById(R.id.btnAns3);
         randomList = new ArrayList<Integer>();
-
-        //reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+ mlLevel.getText().toString());
 
         mBtnAns1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,31 +182,69 @@ public class GameActivity extends AppCompatActivity {
     private void randAnswers ()
     {// TODO:make it random
         Random rand = new Random();
-        int r = rand.nextInt(3) + 1;
-        mBtnAns1.setText(questions[current_question].getAns1());
-        mBtnAns2.setText(questions[current_question].getAns2());
-        mBtnAns3.setText(questions[current_question].getAns3());
+        int r = rand.nextInt(6) + 1;
+
+        switch (r)
+        {
+            case 1:
+                mBtnAns1.setText(questions[current_question].getAns1());
+                mBtnAns2.setText(questions[current_question].getAns2());
+                mBtnAns3.setText(questions[current_question].getAns3());
+                saveCorrectButton = mBtnAns1;
+                break;
+            case 2:
+                mBtnAns1.setText(questions[current_question].getAns3());
+                mBtnAns2.setText(questions[current_question].getAns2());
+                mBtnAns3.setText(questions[current_question].getAns1());
+                saveCorrectButton = mBtnAns3;
+                break;
+            case 3:
+                mBtnAns1.setText(questions[current_question].getAns1());
+                mBtnAns2.setText(questions[current_question].getAns3());
+                mBtnAns3.setText(questions[current_question].getAns2());
+                saveCorrectButton = mBtnAns1;
+                break;
+            case 4:
+                mBtnAns1.setText(questions[current_question].getAns2());
+                mBtnAns2.setText(questions[current_question].getAns3());
+                mBtnAns3.setText(questions[current_question].getAns1());
+                saveCorrectButton = mBtnAns3;
+                break;
+            case 5:
+                mBtnAns1.setText(questions[current_question].getAns3());
+                mBtnAns2.setText(questions[current_question].getAns1());
+                mBtnAns3.setText(questions[current_question].getAns2());
+                saveCorrectButton = mBtnAns2;
+                break;
+            case 6:
+                mBtnAns1.setText(questions[current_question].getAns2());
+                mBtnAns2.setText(questions[current_question].getAns1());
+                mBtnAns3.setText(questions[current_question].getAns3());
+                saveCorrectButton = mBtnAns2;
+                break;
+        }
+
     }
 
     private void chooseAnswer (final Button btnChoose) throws InterruptedException {
-        if (btnChoose.getText().toString() == questions[current_question].getAns1())
-        {//correct answer
+        if (btnChoose.getText().toString().equals(saveCorrectButton.getText().toString()))
+        {
             correctAnswers++;
+            btnChoose.setBackgroundColor(Color.parseColor("#228B22"));//green
         }
         else
         {
             wrongAnswers++;
             lives--;
-            btnChoose.setBackgroundColor(Color.parseColor("#FF6347"));
+            btnChoose.setBackgroundColor(Color.parseColor("#FF6347")); //red
+            saveCorrectButton.setBackgroundColor(Color.parseColor("#228B22"));//green
         }
-
-        mBtnAns1.setBackgroundColor(Color.parseColor("#228B22"));
 
         Handler handler=new Handler();
         Runnable r=new Runnable() {
             public void run() {
                 btnChoose.setBackgroundColor(Color.parseColor("#C0C0C0"));
-                mBtnAns1.setBackgroundColor(Color.parseColor("#C0C0C0"));
+                saveCorrectButton.setBackgroundColor(Color.parseColor("#C0C0C0"));
                 current_question++;
 
                 if ((current_question < QTNS_PER_LEVEL)&&(lives>0))
