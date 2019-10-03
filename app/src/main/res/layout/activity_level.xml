@@ -9,9 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layoutDirection="rtl">
 
-    <TextView
+        <TextView
         android:id="@+id/txt_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +21,17 @@
         tools:layout_editor_absoluteY="20dp"
         tools:ignore="MissingConstraints" />
 
-    <Button
+        <Switch
+            android:id="@+id/switchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="הצג שאלות בכתב גדול"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="302dp"
+            tools:layout_editor_absoluteY="116dp"
+            android:textSize="25dp"/>
+
+        <Button
         android:id="@+id/btnLevel0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

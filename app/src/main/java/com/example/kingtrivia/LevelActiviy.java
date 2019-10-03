@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class LevelActiviy extends AppCompatActivity{
     private Button btnLevl0;
     private Button btnLevl1;
     private Button btnLevl2;
+    private Switch switchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class LevelActiviy extends AppCompatActivity{
         btnLevl0 = findViewById(R.id.btnLevel0);
         btnLevl1 = findViewById(R.id.btnLevel1);
         btnLevl2 = findViewById(R.id.btnLevel2);
+        switchBtn = findViewById(R.id.switchBtn);
 
         //Get the bundle
         Bundle bundle = getIntent().getExtras();
@@ -61,6 +64,10 @@ public class LevelActiviy extends AppCompatActivity{
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("level", "1");
+                if (switchBtn.isChecked())
+                    bundle.putString("questionSize", "1");
+                else
+                    bundle.putString("questionSize", "0");
                 //Add the bundle to the intent
                 i.putExtras(bundle);
                 startActivity(i);
@@ -73,6 +80,10 @@ public class LevelActiviy extends AppCompatActivity{
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("level", "2");
+                if (switchBtn.isChecked())
+                    bundle.putString("questionSize", "1");
+                else
+                    bundle.putString("questionSize", "0");
                 //Add the bundle to the intent
                 i.putExtras(bundle);
                 startActivity(i);
@@ -85,6 +96,10 @@ public class LevelActiviy extends AppCompatActivity{
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("level", "3");
+                if (switchBtn.isChecked())
+                    bundle.putString("questionSize", "1");
+                else
+                    bundle.putString("questionSize", "0");
                 //Add the bundle to the intent
                 i.putExtras(bundle);
                 startActivity(i);
@@ -97,7 +112,6 @@ public class LevelActiviy extends AppCompatActivity{
                 if (firebaseAuth.getCurrentUser()!= null) {
                     firebaseAuth.signOut();
                     Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
-
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     finish();

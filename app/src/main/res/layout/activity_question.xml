@@ -10,30 +10,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layoutDirection="ltr"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-16dp">
+        tools:layout_editor_absoluteX="-75dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
             android:id="@+id/txt_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
             android:text="רמת השאלה"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="156dp"
-            tools:layout_editor_absoluteY="16dp"
-            android:layout_row="1"
-            android:layout_column="1" />
+            tools:layout_editor_absoluteY="16dp" />
 
         <TextView
             android:id="@+id/txt_questionNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
             android:text="1/10"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="-4dp"
-            android:layout_row="0"
-            android:layout_column="0" />
+            tools:layout_editor_absoluteY="-4dp" />
 
         <TextView
             android:id="@+id/txt_lives"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="2"
-            android:layout_column="2"
+            android:layout_column="1"
             android:text="השאלה עצמה"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="164dp"
@@ -60,14 +60,14 @@
         <Button
             android:id="@+id/btnAns1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_row="3"
             android:layout_column="2"
+            android:background="#C0C0C0"
             android:text="Answer 1"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
-            tools:layout_editor_absoluteY="261dp"
-            android:background="#C0C0C0"/>
+            tools:layout_editor_absoluteY="261dp" />
 
         <Button
             android:id="@+id/btnAns2"
@@ -75,11 +75,11 @@
             android:layout_height="wrap_content"
             android:layout_row="4"
             android:layout_column="2"
+            android:background="#C0C0C0"
             android:text="Answer 2"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
-            tools:layout_editor_absoluteY="332dp"
-            android:background="#C0C0C0"/>
+            tools:layout_editor_absoluteY="332dp" />
 
         <Button
             android:id="@+id/btnAns3"
@@ -87,11 +87,11 @@
             android:layout_height="wrap_content"
             android:layout_row="5"
             android:layout_column="2"
+            android:background="#C0C0C0"
             android:text="Answer 3"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
-            tools:layout_editor_absoluteY="405dp"
-            android:background="#C0C0C0"/>
+            tools:layout_editor_absoluteY="405dp" />
 
     </GridLayout>
 

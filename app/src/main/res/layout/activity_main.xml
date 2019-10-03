@@ -39,16 +39,6 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="174dp" />
-
-        <Switch
-            android:id="@+id/switchTextSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="כתב גדול"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="302dp"
-            tools:layout_editor_absoluteY="116dp" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

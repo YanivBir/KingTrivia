@@ -27,7 +27,8 @@ public class GameActivity extends AppCompatActivity {
     private Button mBtnAns3;
 
     public static final int QTNS_PER_LEVEL = 3; // change it to 10!
-    public static final int DELAY = 800; // 5000 means 5 sec
+    public static final int DELAY = 800; // 1000 means 1 sec
+    public static final int QUESTION_SIZE = 25; // 1000 means 1 sec
 
     private Question[] questions;
     private int current_question;
@@ -37,10 +38,11 @@ public class GameActivity extends AppCompatActivity {
     private int wrongAnswers;
     private int questionCount;
     private  ArrayList<Integer> randomList;
-
     private Button saveCorrectButton;
 
     private DatabaseReference reffDbQuestions;
+
+    private String questionSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +102,16 @@ public class GameActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         level = bundle.getString("level");
+        questionSize =  bundle.getString("questionSize");
         setTextViewLabel(level);
+
+        if (questionSize.equals("1"))
+        {
+            mQuestion.setTextSize(QUESTION_SIZE);
+            mBtnAns1.setTextSize(QUESTION_SIZE);
+            mBtnAns2.setTextSize(QUESTION_SIZE);
+            mBtnAns3.setTextSize(QUESTION_SIZE);
+        }
 
         reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+level);
         reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -170,6 +181,7 @@ public class GameActivity extends AppCompatActivity {
                 randAnswers ();
 
                 mLives.setText("lives: "+lives);
+                mQuestionNumber.setText(String.valueOf(current_question+1)+"/"+ String.valueOf(QTNS_PER_LEVEL));
             }
 
             @Override

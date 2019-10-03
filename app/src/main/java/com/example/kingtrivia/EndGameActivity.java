@@ -31,9 +31,14 @@ public class EndGameActivity extends AppCompatActivity {
         String wrong = bundle.getString("wrong");
         String life = bundle.getString("life");
 
+        int total = 10*Integer.parseInt(correct) + (-5)*Integer.parseInt(wrong) + (15)*Integer.parseInt(life);
+        if (total < 0)
+            total = 0;
+
         mCorrect.setText(correct);
         mWrong.setText(wrong);
         mLife.setText(life);
+        mAllGrades.setText(String.valueOf(total));
 
         returnLevel.setOnClickListener(new View.OnClickListener() {
             @Override
