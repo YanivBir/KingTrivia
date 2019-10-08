@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
@@ -26,11 +27,12 @@ public class GameActivity extends AppCompatActivity {
     private Button mBtnAns2;
     private Button mBtnAns3;
 
-    public static final int QTNS_PER_LEVEL = 3; // change it to 10!
+    public static final int QTNS_PER_LEVEL = 10;
     public static final int DELAY = 800; // 1000 means 1 sec
     public static final int QUESTION_SIZE = 25; // 1000 means 1 sec
 
-    private Question[] questions;
+    private ArrayList<Question> allQuestions;
+    private ArrayList<Question> questions;
     private int current_question;
     private String level;
     private int lives;
@@ -44,12 +46,14 @@ public class GameActivity extends AppCompatActivity {
 
     private String questionSize;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        questions = new Question[QTNS_PER_LEVEL];
+        questions = new ArrayList<Question>();
+        allQuestions = new ArrayList<Question>();
         current_question = 0;
         lives = 3;
         correctAnswers = 0;
@@ -124,7 +128,6 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -146,92 +149,104 @@ public class GameActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No question at this level", Toast.LENGTH_SHORT).show();
             return;
         }
-        readRandomQuestions();
+
+        readLevelQueestions ();
+    }
+
+    public void readLevelQueestions ()
+    {
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:" + level);
+        reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Iterator<DataSnapshot> dataSnapshotsChat = dataSnapshot.getChildren().iterator();
+
+                while (dataSnapshotsChat.hasNext()) {
+                    DataSnapshot dataSnapshotChild = dataSnapshotsChat.next();
+                    Question q1 = new Question();
+                    q1.setId(dataSnapshotChild.getValue(Question.class).getId());
+                    q1.setLevel(dataSnapshotChild.getValue(Question.class).getLevel());
+                    q1.setTheQuestion(dataSnapshotChild.getValue(Question.class).getTheQuestion());
+                    q1.setAns1(dataSnapshotChild.getValue(Question.class).getAns1());
+                    q1.setAns2(dataSnapshotChild.getValue(Question.class).getAns2());
+                    q1.setAns3(dataSnapshotChild.getValue(Question.class).getAns3());
+                    q1.setIsActive(dataSnapshotChild.getValue(Question.class).getIsActive());
+                    allQuestions.add(q1);
+                }
+
+                readRandomQuestions();
+                getAndwriteQuestionToScreen(); //Write the first question to the screen
+                current_question++;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
 
     private void readRandomQuestions() {//Read random questions from db and put it on an array
         Random rand = new Random();
        // ArrayList<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < QTNS_PER_LEVEL; i++) {
-            int r = rand.nextInt(questionCount) + 1;
-            while (randomList.contains(r))
-                r = rand.nextInt(questionCount) + 1;
+            int r = rand.nextInt(questionCount);
+            while (randomList.contains(r)||(allQuestions.get(r).getIsActive()==0))
+                r = rand.nextInt(questionCount);
             randomList.add(r);
+            questions.add(allQuestions.get(r));
         }
-
-        getAndwriteQuestionToScreen();
     }
+
 
     private void getAndwriteQuestionToScreen()
     {
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:" + level).child(String.valueOf(randomList.get(current_question)));
-        reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                questions[current_question] = new Question();
-                questions[current_question].setId(dataSnapshot.getValue(Question.class).getId());
-                questions[current_question].setLevel(dataSnapshot.getValue(Question.class).getLevel());
-                questions[current_question].setTheQuestion(dataSnapshot.getValue(Question.class).getTheQuestion());
-                questions[current_question].setAns1(dataSnapshot.getValue(Question.class).getAns1());
-                questions[current_question].setAns2(dataSnapshot.getValue(Question.class).getAns2());
-                questions[current_question].setAns3(dataSnapshot.getValue(Question.class).getAns3());
-                questions[current_question].setIsActive(dataSnapshot.getValue(Question.class).getIsActive());
-
-                mQuestion.setText(questions[current_question].getTheQuestion());
-                randAnswers ();
-
-                mLives.setText("lives: "+lives);
-                mQuestionNumber.setText(String.valueOf(current_question+1)+"/"+ String.valueOf(QTNS_PER_LEVEL));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        mQuestion.setText(questions.get(current_question).getTheQuestion());
+        randAnswers ();
+        mLives.setText("lives: "+lives);
+        mQuestionNumber.setText(String.valueOf(current_question+1)+"/"+ String.valueOf(QTNS_PER_LEVEL));
     }
 
     private void randAnswers ()
-    {// TODO:make it random
+    {
         Random rand = new Random();
         int r = rand.nextInt(6) + 1;
 
         switch (r)
         {
             case 1:
-                mBtnAns1.setText(questions[current_question].getAns1());
-                mBtnAns2.setText(questions[current_question].getAns2());
-                mBtnAns3.setText(questions[current_question].getAns3());
+                mBtnAns1.setText(questions.get(current_question).getAns1());
+                mBtnAns2.setText(questions.get(current_question).getAns2());
+                mBtnAns3.setText(questions.get(current_question).getAns3());
                 saveCorrectButton = mBtnAns1;
                 break;
             case 2:
-                mBtnAns1.setText(questions[current_question].getAns3());
-                mBtnAns2.setText(questions[current_question].getAns2());
-                mBtnAns3.setText(questions[current_question].getAns1());
+                mBtnAns1.setText(questions.get(current_question).getAns3());
+                mBtnAns2.setText(questions.get(current_question).getAns2());
+                mBtnAns3.setText(questions.get(current_question).getAns1());
                 saveCorrectButton = mBtnAns3;
                 break;
             case 3:
-                mBtnAns1.setText(questions[current_question].getAns1());
-                mBtnAns2.setText(questions[current_question].getAns3());
-                mBtnAns3.setText(questions[current_question].getAns2());
+                mBtnAns1.setText(questions.get(current_question).getAns1());
+                mBtnAns2.setText(questions.get(current_question).getAns3());
+                mBtnAns3.setText(questions.get(current_question).getAns2());
                 saveCorrectButton = mBtnAns1;
                 break;
             case 4:
-                mBtnAns1.setText(questions[current_question].getAns2());
-                mBtnAns2.setText(questions[current_question].getAns3());
-                mBtnAns3.setText(questions[current_question].getAns1());
+                mBtnAns1.setText(questions.get(current_question).getAns2());
+                mBtnAns2.setText(questions.get(current_question).getAns3());
+                mBtnAns3.setText(questions.get(current_question).getAns1());
                 saveCorrectButton = mBtnAns3;
                 break;
             case 5:
-                mBtnAns1.setText(questions[current_question].getAns3());
-                mBtnAns2.setText(questions[current_question].getAns1());
-                mBtnAns3.setText(questions[current_question].getAns2());
+                mBtnAns1.setText(questions.get(current_question).getAns3());
+                mBtnAns2.setText(questions.get(current_question).getAns1());
+                mBtnAns3.setText(questions.get(current_question).getAns2());
                 saveCorrectButton = mBtnAns2;
                 break;
             case 6:
-                mBtnAns1.setText(questions[current_question].getAns2());
-                mBtnAns2.setText(questions[current_question].getAns1());
-                mBtnAns3.setText(questions[current_question].getAns3());
+                mBtnAns1.setText(questions.get(current_question).getAns2());
+                mBtnAns2.setText(questions.get(current_question).getAns1());
+                mBtnAns3.setText(questions.get(current_question).getAns3());
                 saveCorrectButton = mBtnAns2;
                 break;
         }
