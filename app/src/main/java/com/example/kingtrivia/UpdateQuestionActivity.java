@@ -139,42 +139,48 @@ public class UpdateQuestionActivity extends AppCompatActivity{
         });
     }
 
-    private void showQuestion (String questionId, String questionLevel)
-    {
-        reffDbQuestions=  FirebaseDatabase.getInstance().getReference().child("questions").
-                child("level:"+questionLevel).child(questionId);
-        reffDbQuestions.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
-                    question.setId(dataSnapshot.getValue(Question.class).getId());
-                    question.setLevel(dataSnapshot.getValue(Question.class).getLevel());
-                    question.setTheQuestion(dataSnapshot.getValue(Question.class).getTheQuestion());
-                    question.setAns1(dataSnapshot.getValue(Question.class).getAns1());
-                    question.setAns2(dataSnapshot.getValue(Question.class).getAns2());
-                    question.setAns3(dataSnapshot.getValue(Question.class).getAns3());
-                    question.setIsActive(dataSnapshot.getValue(Question.class).getIsActive());
+    private void showQuestion (final String questionId, final String questionLevel) {
+        Thread thread = new Thread() {
+            public void run() {
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").
+                        child("level:" + questionLevel).child(questionId);
 
-                    questionNumField.setText(Integer.toString(question.getId()));
-                    questionLevelField.setText(Integer.toString(question.getLevel()));
-                    questionField.setText(question.getTheQuestion());
-                    ans1Field.setText(question.getAns1());
-                    ans2Field.setText(question.getAns2());
-                    ans3Field.setText(question.getAns3());
+                reffDbQuestions.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                            question.setId(dataSnapshot.getValue(Question.class).getId());
+                            question.setLevel(dataSnapshot.getValue(Question.class).getLevel());
+                            question.setTheQuestion(dataSnapshot.getValue(Question.class).getTheQuestion());
+                            question.setAns1(dataSnapshot.getValue(Question.class).getAns1());
+                            question.setAns2(dataSnapshot.getValue(Question.class).getAns2());
+                            question.setAns3(dataSnapshot.getValue(Question.class).getAns3());
+                            question.setIsActive(dataSnapshot.getValue(Question.class).getIsActive());
 
-                    if(question.getIsActive() == 1)
-                        btnDel.setText("מחק");
-                    else
-                        btnDel.setText("שחזר");
+                            questionNumField.setText(Integer.toString(question.getId()));
+                            questionLevelField.setText(Integer.toString(question.getLevel()));
+                            questionField.setText(question.getTheQuestion());
+                            ans1Field.setText(question.getAns1());
+                            ans2Field.setText(question.getAns2());
+                            ans3Field.setText(question.getAns3());
 
-                }
+                            if (question.getIsActive() == 1)
+                                btnDel.setText("מחק");
+                            else
+                                btnDel.setText("שחזר");
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
+        };
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        thread.start();
     }
 
     private boolean validateForm() {

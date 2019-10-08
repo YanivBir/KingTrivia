@@ -122,10 +122,11 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), AdminActivity.class);
                 startActivity(i);
-                //finish();
             }
         });
 
+        Thread thread = new Thread(){
+            public void run(){
         Query userQuery = databaseUsers.child(userId);
         userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -142,5 +143,9 @@ public class LevelActiviy extends AppCompatActivity{
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+            }
+        };
+
+        thread.start();
     }
 }

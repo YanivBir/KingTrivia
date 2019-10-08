@@ -50,10 +50,9 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        questions = new ArrayList<Question>();
-        allQuestions = new ArrayList<Question>();
+        questions = new ArrayList<>();
+        allQuestions = new ArrayList<>();
         current_question = 0;
-        lives = 3;
         correctAnswers = 0;
         wrongAnswers = 0;
 
@@ -103,10 +102,24 @@ public class GameActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         level = bundle.getString("level");
-        questionSize =  bundle.getString("questionSize");
-
-        if (questionSize.equals("1"))
+        switch(level)
         {
+            case "1":
+                lives=1;
+                break;
+            case "2":
+                lives=2;
+                break;
+            case "3":
+                lives=3;
+                break;
+            default:
+                lives=3;
+                break;
+        }
+
+        questionSize = bundle.getString("questionSize");
+        if (questionSize.equals("1")) {
             mQuestion.setTextSize(QUESTION_SIZE);
             mBtnAns1.setTextSize(QUESTION_SIZE);
             mBtnAns2.setTextSize(QUESTION_SIZE);
@@ -115,19 +128,25 @@ public class GameActivity extends AppCompatActivity {
             mQuestionNumber.setTextSize(QUESTION_SIZE);
         }
 
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+level);
-        reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists())
-                    questionCount= (int) dataSnapshot.getChildrenCount();
-                start_game();
-            }
+        Thread thread = new Thread() {
+            public void run() {
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:" + level);
+                reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists())
+                            questionCount = (int) dataSnapshot.getChildrenCount();
+                        start_game();
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
             }
-        });
+        };
+
+        thread.start();
     }
 
      private void start_game() {
@@ -141,34 +160,40 @@ public class GameActivity extends AppCompatActivity {
 
     public void readLevelQueestions ()
     {
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:" + level);
-        reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Iterator<DataSnapshot> dataSnapshotsChat = dataSnapshot.getChildren().iterator();
+        Thread thread = new Thread(){
+            public void run(){
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:" + level);
+                reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Iterator<DataSnapshot> dataSnapshotsChat = dataSnapshot.getChildren().iterator();
 
-                while (dataSnapshotsChat.hasNext()) {
-                    DataSnapshot dataSnapshotChild = dataSnapshotsChat.next();
-                    Question q1 = new Question();
-                    q1.setId(dataSnapshotChild.getValue(Question.class).getId());
-                    q1.setLevel(dataSnapshotChild.getValue(Question.class).getLevel());
-                    q1.setTheQuestion(dataSnapshotChild.getValue(Question.class).getTheQuestion());
-                    q1.setAns1(dataSnapshotChild.getValue(Question.class).getAns1());
-                    q1.setAns2(dataSnapshotChild.getValue(Question.class).getAns2());
-                    q1.setAns3(dataSnapshotChild.getValue(Question.class).getAns3());
-                    q1.setIsActive(dataSnapshotChild.getValue(Question.class).getIsActive());
-                    allQuestions.add(q1);
-                }
+                        while (dataSnapshotsChat.hasNext()) {
+                            DataSnapshot dataSnapshotChild = dataSnapshotsChat.next();
+                            Question q1 = new Question();
+                            q1.setId(dataSnapshotChild.getValue(Question.class).getId());
+                            q1.setLevel(dataSnapshotChild.getValue(Question.class).getLevel());
+                            q1.setTheQuestion(dataSnapshotChild.getValue(Question.class).getTheQuestion());
+                            q1.setAns1(dataSnapshotChild.getValue(Question.class).getAns1());
+                            q1.setAns2(dataSnapshotChild.getValue(Question.class).getAns2());
+                            q1.setAns3(dataSnapshotChild.getValue(Question.class).getAns3());
+                            q1.setIsActive(dataSnapshotChild.getValue(Question.class).getIsActive());
+                            allQuestions.add(q1);
+                        }
 
-                readRandomQuestions();
-                getAndwriteQuestionToScreen(); //Write the first question to the screen
-                current_question++;
+                        readRandomQuestions();
+                        getAndwriteQuestionToScreen(); //Write the first question to the screen
+                        current_question++;
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
             }
+        };
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
+        thread.start();
     }
 
     private void readRandomQuestions() {//Read random questions from db and put it on an array

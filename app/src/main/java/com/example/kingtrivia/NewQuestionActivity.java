@@ -38,6 +38,8 @@ public class NewQuestionActivity extends AppCompatActivity {
         ans2Field = findViewById(R.id.txt_ans2);
         ans3Field = findViewById(R.id.txt_ans3);
 
+        Thread thread = new Thread(){
+            public void run(){
         reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:1");
         reffDbQuestions.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,6 +81,11 @@ public class NewQuestionActivity extends AppCompatActivity {
 
             }
         });
+
+            }
+        };
+
+        thread.start();
 
         final Button btnSend = findViewById(R.id.btnSend);
         btnSend.setOnClickListener(new View.OnClickListener() {
