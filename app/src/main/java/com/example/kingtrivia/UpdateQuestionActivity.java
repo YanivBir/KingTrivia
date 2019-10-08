@@ -13,7 +13,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class UpdateQuestionActivity extends AppCompatActivity{
@@ -52,13 +51,9 @@ public class UpdateQuestionActivity extends AppCompatActivity{
         btnPrev = findViewById(R.id.btnPrev);
         btnNext = findViewById(R.id.btnNext);
 
-       // reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
-
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // String questionId = questionNumField.getText().toString();
-                //showQuestion(questionId);
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
                     questionNumField.setError("Required");
                 }
@@ -132,7 +127,6 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                 if (!validateForm())
                     return;
 
-                //question.setLevel(Integer.parseInt(questionLevelField.getText().toString().trim()));
                 question.setTheQuestion(questionField.getText().toString().trim());
                 question.setAns1(ans1Field.getText().toString().trim());
                 question.setAns2(ans2Field.getText().toString().trim());

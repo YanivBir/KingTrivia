@@ -129,7 +129,7 @@
             tools:layout_editor_absoluteY="254dp" />
 
         <EditText
-            android:id="@+id/txt_ans1"
+            android:id="@+id/txt_ans2"
             android:layout_width="274dp"
             android:layout_height="wrap_content"
             android:layout_row="6"
@@ -153,7 +153,7 @@
             tools:layout_editor_absoluteY="307dp" />
 
         <EditText
-            android:id="@+id/txt_ans2"
+            android:id="@+id/txt_ans1"
             android:layout_width="272dp"
             android:layout_height="wrap_content"
             android:layout_row="5"

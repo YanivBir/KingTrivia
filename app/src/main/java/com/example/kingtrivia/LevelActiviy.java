@@ -2,8 +2,6 @@ package com.example.kingtrivia;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -142,7 +140,6 @@ public class LevelActiviy extends AppCompatActivity{
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                //Log.e(TAG, "onCancelled", databaseError.toException());
             }
         });
     }

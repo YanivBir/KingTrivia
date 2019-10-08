@@ -17,7 +17,7 @@
             android:id="@+id/txt_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="השאלה עצמה"
+            android:text="טוען..."
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="164dp"
             tools:layout_editor_absoluteY="156dp" />
@@ -27,39 +27,42 @@
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:background="#C0C0C0"
-            android:text="Answer 1"
+            android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
             tools:layout_editor_absoluteY="261dp"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btnAns2"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:background="#C0C0C0"
-            android:text="Answer 2"
+            android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
             tools:layout_editor_absoluteY="332dp"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btnAns3"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
             android:background="#C0C0C0"
-            android:text="Answer 3"
+            android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
             tools:layout_editor_absoluteY="405dp"
-            android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/txt_lives"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="lives: XX"
+            android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="350dp"
             tools:layout_editor_absoluteY="-3dp"
@@ -69,20 +72,10 @@
             android:id="@+id/txt_questionNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1/10"
+            android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="-4dp" />
-
-        <TextView
-            android:id="@+id/txt_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="רמת השאלה"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="156dp"
-            tools:layout_editor_absoluteY="16dp"
-            android:visibility="invisible"/>
 
     </LinearLayout>
 

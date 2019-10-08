@@ -21,7 +21,6 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity {
     private TextView mQuestionNumber;
     private TextView mLives;
-    private TextView mlLevel;
     private TextView mQuestion;
     private Button mBtnAns1;
     private Button mBtnAns2;
@@ -46,11 +45,10 @@ public class GameActivity extends AppCompatActivity {
 
     private String questionSize;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.activity_game);
 
         questions = new ArrayList<Question>();
         allQuestions = new ArrayList<Question>();
@@ -61,7 +59,6 @@ public class GameActivity extends AppCompatActivity {
 
         mQuestionNumber = findViewById(R.id.txt_questionNumber);
         mLives = findViewById(R.id.txt_lives);
-        mlLevel = findViewById(R.id.txt_level);
         mQuestion = findViewById(R.id.txt_question);
         mBtnAns1 = findViewById(R.id.btnAns1);
         mBtnAns2 = findViewById(R.id.btnAns2);
@@ -107,7 +104,6 @@ public class GameActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         level = bundle.getString("level");
         questionSize =  bundle.getString("questionSize");
-        setTextViewLabel(level);
 
         if (questionSize.equals("1"))
         {
@@ -115,6 +111,8 @@ public class GameActivity extends AppCompatActivity {
             mBtnAns1.setTextSize(QUESTION_SIZE);
             mBtnAns2.setTextSize(QUESTION_SIZE);
             mBtnAns3.setTextSize(QUESTION_SIZE);
+            mLives.setTextSize(QUESTION_SIZE);
+            mQuestionNumber.setTextSize(QUESTION_SIZE);
         }
 
         reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+level);
@@ -132,19 +130,7 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
-    private void setTextViewLabel (String Level)
-    {
-        if (Level.equals("1"))
-            mlLevel.setText("שאלות ברמה קלה");
-        else if (Level.equals("2"))
-            mlLevel.setText("שאלות ברמה בינונית");
-        else if (Level.equals("3"))
-            mlLevel.setText("שאלות ברמה קשה");
-        else
-            mlLevel.setText("Error level");
-    }
-
-    private void start_game() {
+     private void start_game() {
         if (questionCount == 0) {
             Toast.makeText(getApplicationContext(), "No question at this level", Toast.LENGTH_SHORT).show();
             return;
@@ -187,7 +173,6 @@ public class GameActivity extends AppCompatActivity {
 
     private void readRandomQuestions() {//Read random questions from db and put it on an array
         Random rand = new Random();
-       // ArrayList<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < QTNS_PER_LEVEL; i++) {
             int r = rand.nextInt(questionCount);
             while (randomList.contains(r)||(allQuestions.get(r).getIsActive()==0))
@@ -197,9 +182,12 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-
     private void getAndwriteQuestionToScreen()
     {
+        mBtnAns1.setVisibility(View.VISIBLE);
+        mBtnAns2.setVisibility(View.VISIBLE);
+        mBtnAns3.setVisibility(View.VISIBLE);
+
         mQuestion.setText(questions.get(current_question).getTheQuestion());
         randAnswers ();
         mLives.setText("lives: "+lives);
