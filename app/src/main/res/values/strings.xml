@@ -3,4 +3,23 @@
     <string name="login">Login</string>
     <string name="hello_guest">Hello Guest!</string>
     <string name="register">Register</string>
+    <string name="correct">correct</string>
+    <string name="wrong">wrong</string>
+    <string name="life">life</string>
+    <string name="level">level</string>
+    <string name="questionSize">questionSize</string>
+    <string name="bigText">1</string>
+    <string name="questions">questions</string>
+    <string name="ErrorNoQuestions">No question at this level</string>
+    <string name="email">email</string>
+    <string name="logoutMsg">Logout Successfully</string>
+    <string name="Required">Required</string>
+    <string name="sucessMsg">Login Successfully</string>
+    <string name="connectError">Could not Login, please try again.</string>
+    <string name="AddSucess">Question added successfully</string>
+    <string name="RegSucess">Registered Successfully</string>
+    <string name="RegUser">Registering user...</string>
+    <string name="UserSavedDD">User saved to DB.</string>
+    <string name="ErrorRegister">Could not register, please try again.</string>
+    <string name="PassConstr">Password must contain min 6 chars</string>
 </resources>

@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity{
         {
             Intent i = new Intent(getApplicationContext(), LevelActiviy.class);
             Bundle bundle = new Bundle();
-            bundle.putString("email", firebaseAuth.getCurrentUser().getEmail());
+            bundle.putString(getResources().getString(R.string.email), firebaseAuth.getCurrentUser().getEmail());
             //Add the bundle to the intent
             i.putExtras(bundle);
             startActivity(i);
@@ -64,14 +64,14 @@ public class LoginActivity extends AppCompatActivity{
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(mEmailField.getText().toString())) {
-            mEmailField.setError("Required");
+            mEmailField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             mEmailField.setError(null);
         }
 
         if (TextUtils.isEmpty(mPasswordField.getText().toString())) {
-            mPasswordField.setError("Required");
+            mPasswordField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             mPasswordField.setError(null);
@@ -92,13 +92,11 @@ public class LoginActivity extends AppCompatActivity{
                         if (task.isSuccessful())
                         {
                             //user is succesfully registerd and logged in
-                            Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(RegisterActivity.this, LevelActiviy.class));
-                            // finish();
+                            Toast.makeText(LoginActivity.this, getResources().getString(R.string.sucessMsg), Toast.LENGTH_SHORT).show();
 
                             Intent i = new Intent(LoginActivity.this, LevelActiviy.class);
                             Bundle bundle = new Bundle();
-                            bundle.putString("email", email);
+                            bundle.putString(getResources().getString(R.string.email), email);
                             //Add the bundle to the intent
                             i.putExtras(bundle);
                             startActivity(i);
@@ -106,7 +104,7 @@ public class LoginActivity extends AppCompatActivity{
                         }
                         else
                         {
-                            Toast.makeText(LoginActivity.this, "Could not Login, please try again.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,  getResources().getString(R.string.connectError), Toast.LENGTH_SHORT).show();
                         }
                 }
                 });

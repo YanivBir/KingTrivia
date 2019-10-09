@@ -49,7 +49,7 @@ public class LevelActiviy extends AppCompatActivity{
 
         //Get the bundle
         Bundle bundle = getIntent().getExtras();
-        this.userEmail = bundle.getString("email");
+        this.userEmail = bundle.getString(getResources().getString(R.string.email));
 
         TextView email = (TextView) findViewById(R.id.txt_email);
         email.setText("Welcome "+ this.userEmail.split("@")[0]);
@@ -63,9 +63,9 @@ public class LevelActiviy extends AppCompatActivity{
                 Bundle bundle = new Bundle();
                 bundle.putString("level", "1");
                 if (switchBtn.isChecked())
-                    bundle.putString("questionSize", "1");
+                    bundle.putString(getResources().getString(R.string.questionSize), "1");
                 else
-                    bundle.putString("questionSize", "0");
+                    bundle.putString(getResources().getString(R.string.questionSize), "0");
                 //Add the bundle to the intent
                 i.putExtras(bundle);
                 startActivity(i);
@@ -77,11 +77,11 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("level", "2");
+                bundle.putString(getResources().getString(R.string.level), "2");
                 if (switchBtn.isChecked())
-                    bundle.putString("questionSize", "1");
+                    bundle.putString(getResources().getString(R.string.questionSize), "1");
                 else
-                    bundle.putString("questionSize", "0");
+                    bundle.putString(getResources().getString(R.string.questionSize), "0");
                 //Add the bundle to the intent
                 i.putExtras(bundle);
                 startActivity(i);
@@ -93,11 +93,11 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("level", "3");
+                bundle.putString(getResources().getString(R.string.level), "3");
                 if (switchBtn.isChecked())
-                    bundle.putString("questionSize", "1");
+                    bundle.putString(getResources().getString(R.string.questionSize), "1");
                 else
-                    bundle.putString("questionSize", "0");
+                    bundle.putString(getResources().getString(R.string.questionSize), "0");
                 //Add the bundle to the intent
                 i.putExtras(bundle);
                 startActivity(i);
@@ -109,7 +109,8 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 if (firebaseAuth.getCurrentUser()!= null) {
                     firebaseAuth.signOut();
-                    Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.logoutMsg),
+                            Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                     finish();

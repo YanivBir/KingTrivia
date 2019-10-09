@@ -40,7 +40,8 @@ public class NewQuestionActivity extends AppCompatActivity {
 
         Thread thread = new Thread(){
             public void run(){
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:1");
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions)).
+                child(getResources().getString(R.string.level)+":1");
         reffDbQuestions.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -54,7 +55,8 @@ public class NewQuestionActivity extends AppCompatActivity {
             }
         });
 
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:2");
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions)).
+                child(getResources().getString(R.string.level)+":2");
         reffDbQuestions.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -68,7 +70,8 @@ public class NewQuestionActivity extends AppCompatActivity {
             }
         });
 
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:3");
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions)).
+                child(getResources().getString(R.string.level)+":3");
         reffDbQuestions.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -102,35 +105,35 @@ public class NewQuestionActivity extends AppCompatActivity {
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(levelQuesField.getText().toString())) {
-            levelQuesField.setError("Required");
+            levelQuesField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             levelQuesField.setError(null);
         }
 
         if (TextUtils.isEmpty(questionField.getText().toString())) {
-            questionField.setError("Required");
+            questionField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             questionField.setError(null);
         }
 
         if (TextUtils.isEmpty(ans1Field.getText().toString())) {
-            ans1Field.setError("Required");
+            ans1Field.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             ans1Field.setError(null);
         }
 
         if (TextUtils.isEmpty(ans2Field.getText().toString())) {
-            ans2Field.setError("Required");
+            ans2Field.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             ans2Field.setError(null);
         }
 
         if (TextUtils.isEmpty(ans3Field.getText().toString())) {
-            ans3Field.setError("Required");
+            ans3Field.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             ans3Field.setError(null);
@@ -144,22 +147,22 @@ public class NewQuestionActivity extends AppCompatActivity {
         questionField.getText().toString().trim(),
         ans1Field.getText().toString().trim(), ans2Field.getText().toString().trim(),
         ans3Field.getText().toString().trim(), 1);
-        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions");
+        reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions));
 
         if (levelQuesField.getText().toString().equals("1")) {
             q1.setId(maxid1);
-            reffDbQuestions.child("level:" + levelQuesField.getText()).child(String.valueOf(maxid1)).setValue(q1);
+            reffDbQuestions.child(getResources().getString(R.string.level)+":" + levelQuesField.getText()).child(String.valueOf(maxid1)).setValue(q1);
         }
         else if (levelQuesField.getText().toString().equals("2")) {
             q1.setId(maxid2);
-            reffDbQuestions.child("level:" + levelQuesField.getText()).child(String.valueOf(maxid2)).setValue(q1);
+            reffDbQuestions.child(getResources().getString(R.string.level)+":"  + levelQuesField.getText()).child(String.valueOf(maxid2)).setValue(q1);
         }
         else {
             q1.setId(maxid3);
-            reffDbQuestions.child("level:" + levelQuesField.getText()).child(String.valueOf(maxid3)).setValue(q1);
+            reffDbQuestions.child(getResources().getString(R.string.level)+":" + levelQuesField.getText()).child(String.valueOf(maxid3)).setValue(q1);
         }
 
-        Toast.makeText(getApplicationContext(), "Question added successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.AddSucess), Toast.LENGTH_SHORT).show();
         finish();
     }
 

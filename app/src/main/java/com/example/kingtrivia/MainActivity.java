@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent i = new Intent(getApplicationContext(), LevelActiviy.class);
             Bundle bundle = new Bundle();
-            bundle.putString("email", firebaseAuth.getCurrentUser().getEmail());
+            bundle.putString(getResources().getString(R.string.email), firebaseAuth.getCurrentUser().getEmail());
             //Add the bundle to the intent
             i.putExtras(bundle);
             startActivity(i);

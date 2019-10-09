@@ -28,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
 
     public static final int QTNS_PER_LEVEL = 10;
     public static final int DELAY = 800; // 1000 means 1 sec
-    public static final int QUESTION_SIZE = 30; //
+    public static final int QUESTION_TEXT_SIZE = 30;
 
     private ArrayList<Question> allQuestions;
     private ArrayList<Question> questions;
@@ -42,8 +42,6 @@ public class GameActivity extends AppCompatActivity {
     private Button saveCorrectButton;
 
     private DatabaseReference reffDbQuestions;
-
-    private String questionSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
         mBtnAns1 = findViewById(R.id.btnAns1);
         mBtnAns2 = findViewById(R.id.btnAns2);
         mBtnAns3 = findViewById(R.id.btnAns3);
-        randomList = new ArrayList<Integer>();
+        randomList = new ArrayList<>();
 
         mBtnAns1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +99,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
         Bundle bundle = getIntent().getExtras();
-        level = bundle.getString("level");
+        level = bundle.getString(getResources().getString(R.string.level));
         switch(level)
         {
             case "1":
@@ -118,14 +116,14 @@ public class GameActivity extends AppCompatActivity {
                 break;
         }
 
-        questionSize = bundle.getString("questionSize");
-        if (questionSize.equals("1")) {
-            mQuestion.setTextSize(QUESTION_SIZE);
-            mBtnAns1.setTextSize(QUESTION_SIZE);
-            mBtnAns2.setTextSize(QUESTION_SIZE);
-            mBtnAns3.setTextSize(QUESTION_SIZE);
-            mLives.setTextSize(QUESTION_SIZE);
-            mQuestionNumber.setTextSize(QUESTION_SIZE);
+        String questionTextSize = bundle.getString(getResources().getString(R.string.questionSize));
+        if (questionTextSize.equals(getResources().getString(R.string.bigText))) {
+            mQuestion.setTextSize(QUESTION_TEXT_SIZE);
+            mBtnAns1.setTextSize(QUESTION_TEXT_SIZE);
+            mBtnAns2.setTextSize(QUESTION_TEXT_SIZE);
+            mBtnAns3.setTextSize(QUESTION_TEXT_SIZE);
+            mLives.setTextSize(QUESTION_TEXT_SIZE);
+            mQuestionNumber.setTextSize(QUESTION_TEXT_SIZE);
         }
 
         Thread thread = new Thread() {
@@ -151,7 +149,7 @@ public class GameActivity extends AppCompatActivity {
 
      private void start_game() {
         if (questionCount == 0) {
-            Toast.makeText(getApplicationContext(), "No question at this level", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.ErrorNoQuestions), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -162,7 +160,9 @@ public class GameActivity extends AppCompatActivity {
     {
         Thread thread = new Thread(){
             public void run(){
-                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:" + level);
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().
+                        child(getResources().getString(R.string.questions)).
+                        child(getResources().getString(R.string.level) +":"+ level);
                 reffDbQuestions.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -292,9 +292,9 @@ public class GameActivity extends AppCompatActivity {
                 {
                     Intent i = new Intent(getApplicationContext(), EndGameActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("correct", String.valueOf(correctAnswers));
-                    bundle.putString("wrong", String.valueOf(wrongAnswers));
-                    bundle.putString("life", String.valueOf(lives));
+                    bundle.putString(getResources().getString(R.string.correct), String.valueOf(correctAnswers));
+                    bundle.putString(getResources().getString(R.string.wrong), String.valueOf(wrongAnswers));
+                    bundle.putString(getResources().getString(R.string.life), String.valueOf(lives));
                     i.putExtras(bundle);
                     startActivity(i);
                     finish();

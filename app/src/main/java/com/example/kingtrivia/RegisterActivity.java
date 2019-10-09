@@ -27,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity{
     private EditText mPasswordAgainField;
     private Button mRegisterButton;
 
+    public static final int MIN_PASSWORD_LENGTH = 30;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,21 +63,21 @@ public class RegisterActivity extends AppCompatActivity{
     private boolean validateForm() {
         boolean result = true;
         if (TextUtils.isEmpty(mEmailField.getText().toString())) {
-            mEmailField.setError("Required");
+            mEmailField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             mEmailField.setError(null);
         }
 
         if (TextUtils.isEmpty(mPasswordField.getText().toString())) {
-            mPasswordField.setError("Required");
+            mPasswordField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             mPasswordField.setError(null);
         }
 
         if (TextUtils.isEmpty(mPasswordAgainField.getText().toString())) {
-            mPasswordAgainField.setError("Required");
+            mPasswordAgainField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             mPasswordAgainField.setError(null);
@@ -84,15 +86,15 @@ public class RegisterActivity extends AppCompatActivity{
         String password = mPasswordField.getText().toString().trim();
         String passwordAgain = mPasswordAgainField.getText().toString().trim();
         if (!password.equals(passwordAgain)) {
-            mPasswordAgainField.setError("Not match");
+            mPasswordAgainField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             mPasswordAgainField.setError(null);
         }
 
-        if (mPasswordField.getText().toString().length() < 6)
+        if (mPasswordField.getText().toString().length() < MIN_PASSWORD_LENGTH)
         {
-            mPasswordField.setError("Password must contain min 6 chars");
+            mPasswordField.setError(getResources().getString(R.string.PassConstr));
         result = false;
         } else {
             mPasswordField.setError(null);
@@ -105,7 +107,7 @@ public class RegisterActivity extends AppCompatActivity{
         final String email = mEmailField.getText().toString().trim();
         String password = mPasswordField.getText().toString().trim();
 
-        Toast.makeText(RegisterActivity.this, "Registering user...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(RegisterActivity.this, getResources().getString(R.string.RegUser), Toast.LENGTH_SHORT).show();
 
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -115,15 +117,15 @@ public class RegisterActivity extends AppCompatActivity{
                         if (task.isSuccessful())
                         {
                             //user is succesfully registerd and logged in
-                            Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.RegSucess), Toast.LENGTH_SHORT).show();
 
                             User u1 = new User(0);
                             databaseUsers.child("users").child(firebaseAuth.getCurrentUser().getUid()).setValue(u1);
-                            Toast.makeText(RegisterActivity.this, "User saved to DB.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, getResources().getString(R.string.UserSavedDD), Toast.LENGTH_SHORT).show();
 
                             Intent i = new Intent(RegisterActivity.this, LevelActiviy.class);
                             Bundle bundle = new Bundle();
-                            bundle.putString("email", email);
+                            bundle.putString(getResources().getString(R.string.email), email);
                             //Add the bundle to the intent
                             i.putExtras(bundle);
                             startActivity(i);
@@ -131,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity{
                         }
                         else
                         {
-                            Toast.makeText(RegisterActivity.this, "Could not register, please try again.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,getResources().getString(R.string.ErrorRegister), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

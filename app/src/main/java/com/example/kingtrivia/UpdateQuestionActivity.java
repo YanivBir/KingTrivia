@@ -55,11 +55,11 @@ public class UpdateQuestionActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
-                    questionNumField.setError("Required");
+                    questionNumField.setError(getResources().getString(R.string.Required));
                 }
                 else if (TextUtils.isEmpty(questionLevelField.getText().toString()))
                 {
-                    questionLevelField.setError("Required");
+                    questionLevelField.setError(getResources().getString(R.string.Required));
                 }
                 else
                     showQuestion(questionNumField.getText().toString(), questionLevelField.getText().toString());
@@ -70,11 +70,11 @@ public class UpdateQuestionActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
-                    questionNumField.setError("Required");
+                    questionNumField.setError(getResources().getString(R.string.Required));
                 }
                 else if (TextUtils.isEmpty(questionLevelField.getText().toString()))
                 {
-                    questionLevelField.setError("Required");
+                    questionLevelField.setError(getResources().getString(R.string.Required));
                 }
                 else{
                     int questionId = Integer.parseInt(questionNumField.getText().toString());
@@ -89,11 +89,11 @@ public class UpdateQuestionActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(questionNumField.getText().toString())) {
-                    questionNumField.setError("Required");
+                    questionNumField.setError(getResources().getString(R.string.Required));
                 }
                 else if (TextUtils.isEmpty(questionLevelField.getText().toString()))
                 {
-                    questionLevelField.setError("Required");
+                    questionLevelField.setError(getResources().getString(R.string.Required));
                 }
                 else{
                     int questionId = Integer.parseInt(questionNumField.getText().toString());
@@ -115,7 +115,7 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                     question.setIsActive(1);
                 }
 
-                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+String.valueOf(question.getLevel()));
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions)).child("level:"+String.valueOf(question.getLevel()));
                 reffDbQuestions.child(String.valueOf(question.getId())).child("isActive").setValue(question.getIsActive());
                 Toast.makeText(getApplicationContext(), "Question active status updated successfully", Toast.LENGTH_SHORT).show();
             }
@@ -132,7 +132,7 @@ public class UpdateQuestionActivity extends AppCompatActivity{
                 question.setAns2(ans2Field.getText().toString().trim());
                 question.setAns3(ans3Field.getText().toString().trim());
 
-                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").child("level:"+String.valueOf(question.getLevel()));
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions)).child("level:"+String.valueOf(question.getLevel()));
                 reffDbQuestions.child(String.valueOf(question.getId())).setValue(question);
                 Toast.makeText(getApplicationContext(), "Question updated successfully", Toast.LENGTH_SHORT).show();
             }
@@ -142,7 +142,7 @@ public class UpdateQuestionActivity extends AppCompatActivity{
     private void showQuestion (final String questionId, final String questionLevel) {
         Thread thread = new Thread() {
             public void run() {
-                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child("questions").
+                reffDbQuestions = FirebaseDatabase.getInstance().getReference().child(getResources().getString(R.string.questions)).
                         child("level:" + questionLevel).child(questionId);
 
                 reffDbQuestions.addValueEventListener(new ValueEventListener() {
@@ -187,28 +187,28 @@ public class UpdateQuestionActivity extends AppCompatActivity{
         boolean result = true;
 
         if (TextUtils.isEmpty(questionNumField.getText().toString())) {
-            questionNumField.setError("Required");
+            questionNumField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             questionNumField.setError(null);
         }
 
         if (TextUtils.isEmpty(questionLevelField.getText().toString())) {
-            questionLevelField.setError("Required");
+            questionLevelField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             questionLevelField.setError(null);
         }
 
         if (TextUtils.isEmpty(questionField.getText().toString())) {
-            questionField.setError("Required");
+            questionField.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             questionField.setError(null);
         }
 
         if (TextUtils.isEmpty(ans1Field.getText().toString())) {
-            ans1Field.setError("Required");
+            ans1Field.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             ans1Field.setError(null);
@@ -216,14 +216,14 @@ public class UpdateQuestionActivity extends AppCompatActivity{
 
 
         if (TextUtils.isEmpty(ans2Field.getText().toString())) {
-            ans2Field.setError("Required");
+            ans2Field.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             ans2Field.setError(null);
         }
 
         if (TextUtils.isEmpty(ans3Field.getText().toString())) {
-            ans3Field.setError("Required");
+            ans3Field.setError(getResources().getString(R.string.Required));
             result = false;
         } else {
             ans3Field.setError(null);
