@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layoutDirection="rtl"
+        android:layout_margin="8dp"
         >
 
         <TextView
@@ -20,7 +21,8 @@
             android:text="תשובות נכונות"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="312dp"
-            tools:layout_editor_absoluteY="107dp"/>
+            tools:layout_editor_absoluteY="107dp"
+            />
 
         <TextView
             android:id="@+id/txtCorrect"

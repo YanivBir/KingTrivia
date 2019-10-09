@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layoutDirection="rtl"
-        >
+        android:background="@drawable/tr2">
 
         <TextView
             android:id="@+id/txt_question"
@@ -20,42 +21,47 @@
             android:text="טוען..."
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="164dp"
-            tools:layout_editor_absoluteY="156dp" />
+            tools:layout_editor_absoluteY="156dp"
+            android:background="#4caf50"
+            android:layout_marginTop="30dp"/>
 
         <Button
             android:id="@+id/btnAns1"
-            android:layout_width="129dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="100dp"
             android:background="#C0C0C0"
             android:text=""
+            android:visibility="invisible"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
-            tools:layout_editor_absoluteY="261dp"
-            android:layout_margin="5dp"
-            android:visibility="invisible"/>
+            tools:layout_editor_absoluteY="261dp" />
 
         <Button
             android:id="@+id/btnAns2"
-            android:layout_width="129dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="#C0C0C0"
             android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
             tools:layout_editor_absoluteY="332dp"
-            android:layout_margin="5dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="20dp"
             android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btnAns3"
-            android:layout_width="129dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="#C0C0C0"
             android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="307dp"
             tools:layout_editor_absoluteY="405dp"
-            android:layout_margin="5dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="20dp"
             android:visibility="invisible"/>
 
         <TextView
@@ -66,6 +72,8 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="350dp"
             tools:layout_editor_absoluteY="-3dp"
+            android:layout_marginTop="20dp"
+            android:background="#4caf50"
             />
 
         <TextView
@@ -75,7 +83,8 @@
             android:text=""
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="-4dp" />
+            tools:layout_editor_absoluteY="-4dp"
+            android:background="#4caf50"/>
 
     </LinearLayout>
 

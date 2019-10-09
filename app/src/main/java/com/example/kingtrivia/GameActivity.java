@@ -28,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
 
     public static final int QTNS_PER_LEVEL = 10;
     public static final int DELAY = 800; // 1000 means 1 sec
-    public static final int QUESTION_SIZE = 25; // 1000 means 1 sec
+    public static final int QUESTION_SIZE = 30; //
 
     private ArrayList<Question> allQuestions;
     private ArrayList<Question> questions;
@@ -183,7 +183,6 @@ public class GameActivity extends AppCompatActivity {
 
                         readRandomQuestions();
                         getAndwriteQuestionToScreen(); //Write the first question to the screen
-                        current_question++;
                     }
 
                     @Override
