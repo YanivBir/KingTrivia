@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity{
     private EditText mPasswordAgainField;
     private Button mRegisterButton;
 
-    public static final int MIN_PASSWORD_LENGTH = 30;
+    public static final int MIN_PASSWORD_LENGTH = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
