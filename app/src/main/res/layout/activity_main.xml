@@ -15,7 +15,7 @@
         android:id="@+id/txtId"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:text="Hello Guest"
+        android:text="@string/hello_guest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -26,7 +26,7 @@
         android:id="@+id/btnLoginAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="174dp" />
@@ -35,7 +35,7 @@
             android:id="@+id/btnRegisterAct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/register"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="174dp" />

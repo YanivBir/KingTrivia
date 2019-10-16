@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,18 +26,18 @@
             android:id="@+id/switchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="הצג שאלות בכתב גדול"
+            android:text="@string/showQuesBigger"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="302dp"
             tools:layout_editor_absoluteY="116dp"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:background="#4caf50"/>
 
         <Button
         android:id="@+id/btnLevel0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="שאלות ברמה קלה"
+        android:text="@string/easyQuestions"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="267dp"
         tools:layout_editor_absoluteY="185dp" />
@@ -47,7 +46,7 @@
         android:id="@+id/btnLevel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ְשאלות ברמה בינונית"
+        android:text="@string/medQuestions"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="252dp"
         tools:layout_editor_absoluteY="256dp" />
@@ -56,7 +55,7 @@
         android:id="@+id/btnLevel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="שאלות ברמה קשה"
+        android:text="@string/hardQuestions"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="264dp"
         tools:layout_editor_absoluteY="324dp" />
@@ -65,14 +64,14 @@
             android:id="@+id/btnAdminInter"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
-            android:text="Admin interface"
+            android:text="@string/admin_interface"
             android:visibility="invisible"/>
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="129dp"
             android:layout_height="wrap_content"
-            android:text="Logout" />
+            android:text="@string/logout" />
 
     </LinearLayout>
 

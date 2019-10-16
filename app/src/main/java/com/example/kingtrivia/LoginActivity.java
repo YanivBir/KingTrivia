@@ -2,7 +2,6 @@ package com.example.kingtrivia;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,8 +16,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity{
-
-    //private DatabaseReference mDatabase;
     private FirebaseAuth firebaseAuth;
 
     private EditText mEmailField;
@@ -46,8 +43,6 @@ public class LoginActivity extends AppCompatActivity{
         mEmailField = findViewById(R.id.txt_email);
         mPasswordField = findViewById(R.id.txt_password);
         mLoginButton = findViewById(R.id.btnLogin);
-
-       // progressDialog = new ProgressDialog(this);
 
         final Button btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {

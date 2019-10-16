@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">King Trivia</string>
-    <string name="login">Login</string>
     <string name="hello_guest">Hello Guest!</string>
-    <string name="register">Register</string>
     <string name="correct">correct</string>
     <string name="wrong">wrong</string>
     <string name="life">life</string>
@@ -11,7 +9,7 @@
     <string name="bigText">1</string>
     <string name="questions">questions</string>
     <string name="ErrorNoQuestions">No question at this level</string>
-    <string name="email">email</string>
+    <string name="email">Email</string>
     <string name="logoutMsg">Logout Successfully</string>
     <string name="Required">Required</string>
     <string name="sucessMsg">Login Successfully</string>
@@ -22,4 +20,37 @@
     <string name="UserSavedDD">User saved to DB.</string>
     <string name="ErrorRegister">Could not register, please try again.</string>
     <string name="PassConstr">Password must contain min 6 chars</string>
+    <string name="questionNumber">שאלה מספר</string>
+    <string name="show">הצג</string>
+    <string name="nextQuestion">הבאה</string>
+    <string name="prevQuestion">הקודמת</string>
+    <string name="questionLevl">רמת השאלה</string>
+    <string name="theQueston">נוסח השאלה</string>
+    <string name="correctAnswer">תשובה נכונה</string>
+    <string name="answer2">תשובה 2</string>
+    <string name="answer3">תשובה 3</string>
+    <string name="updateQuestion">עדכן</string>
+    <string name="deleteQuestion">מחק</string>
+    <string name="_1">1</string>
+    <string name="hello_admin">Hello Admin</string>
+    <string name="addNewQuestion">הוספת שאלה חדשה</string>
+    <string name="updateOrDelQuestion">עדכון או מחיקת שאלה</string>
+    <string name="correctAnswers">תשובות נכונות</string>
+    <string name="wrongAnswers">תשובות שגויות</string>
+    <string name="lives">חיים</string>
+    <string name="finalScore">ציון משוקלל</string>
+    <string name="returnHome">חזור לדף הבית</string>
+    <string name="loading">טוען...</string>
+    <string name="showQuesBigger">הצג שאלות בכתב גדול</string>
+    <string name="easyQuestions">שאלות ברמה קלה</string>
+    <string name="medQuestions">ְשאלות ברמה בינונית</string>
+    <string name="hardQuestions">שאלות ברמה קשה</string>
+    <string name="admin_interface">Admin interface</string>
+    <string name="logout">Logout</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="send">שלח</string>
+    <string name="theCoreectAnswer">תשובה 1 (הנכונה)</string>
+    <string name="password_again">Password again:</string>
 </resources>

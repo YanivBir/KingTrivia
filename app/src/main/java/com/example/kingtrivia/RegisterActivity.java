@@ -25,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity{
     private EditText mEmailField;
     private EditText mPasswordField;
     private EditText mPasswordAgainField;
-    private Button mRegisterButton;
 
     public static final int MIN_PASSWORD_LENGTH = 6;
 

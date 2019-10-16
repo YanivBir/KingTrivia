@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,18 +10,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layoutDirection="rtl"
-        android:layout_margin="8dp"
-        >
+        android:layout_margin="8dp">
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="תשובות נכונות"
+            android:text="@string/correctAnswers"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="312dp"
-            tools:layout_editor_absoluteY="107dp"
-            />
+            tools:layout_editor_absoluteY="107dp" />
 
         <TextView
             android:id="@+id/txtCorrect"
@@ -37,7 +34,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="תשובות שגויות"
+            android:text="@string/wrongAnswers"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="310dp"
             tools:layout_editor_absoluteY="150dp"/>
@@ -46,7 +43,6 @@
             android:id="@+id/txtUnCorrect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="99"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="262dp"
             tools:layout_editor_absoluteY="150dp" />
@@ -55,7 +51,7 @@
             android:id="@+id/textView15"
             android:layout_width="32dp"
             android:layout_height="23dp"
-            android:text="חיים"
+            android:text="@string/lives"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="363dp"
             tools:layout_editor_absoluteY="191dp"/>
@@ -64,7 +60,6 @@
             android:id="@+id/txtLife"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="99"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="262dp"
             tools:layout_editor_absoluteY="191dp" />
@@ -73,7 +68,7 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ציון משוקלל"
+            android:text="@string/finalScore"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="327dp"
             tools:layout_editor_absoluteY="232dp" />
@@ -82,7 +77,6 @@
             android:id="@+id/txtAllGrades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="99"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="262dp"
             tools:layout_editor_absoluteY="232dp" />
@@ -91,7 +85,7 @@
             android:id="@+id/btnHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="חזור לדף הבית"
+            android:text="@string/returnHome"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="160dp"
             tools:layout_editor_absoluteY="304dp" />
