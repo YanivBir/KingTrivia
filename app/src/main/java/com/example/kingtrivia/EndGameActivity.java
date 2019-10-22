@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
+
 public class EndGameActivity extends AppCompatActivity {
     private TextView mCorrect;
     private TextView mWrong;
@@ -30,6 +32,9 @@ public class EndGameActivity extends AppCompatActivity {
         String correct = bundle.getString(getResources().getString(R.string.correct));
         String wrong = bundle.getString(getResources().getString(R.string.wrong));
         String life = bundle.getString(getResources().getString(R.string.life));
+
+        if ((correct==null)||(wrong==null)||(life==null))
+            return;
 
         int total = 10*Integer.parseInt(correct) + (-5)*Integer.parseInt(wrong) + (15)*Integer.parseInt(life);
         if (total < 0)

@@ -5,212 +5,220 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="-148dp">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:id="@+id/layoutContainer" android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:text="@string/questionNumber"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="321dp"
-            tools:layout_editor_absoluteY="95dp" />
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.8">
 
-        <EditText
-            android:id="@+id/txt_questionNumber"
-            android:layout_width="50sp"
-            android:layout_height="65dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:imeOptions="actionSend"
-            android:inputType="number"
-            android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="205dp"
-           />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:minHeight="65dp">
 
-        <Button
-            android:id="@+id/btnShow"
-            android:layout_width="75dp"
-            android:layout_height="45dp"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:text="@string/show"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="309dp"
-            tools:layout_editor_absoluteY="136dp" />
+                <EditText
+                    android:id="@+id/txt_questionNumber"
+                    android:layout_width="50sp"
+                    android:layout_height="65dp"
+                    android:imeOptions="actionSend"
+                    android:inputType="number"
+                    android:textSize="28sp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="205dp"/>
 
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="75dp"
-            android:layout_height="45dp"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:text="@string/nextQuestion"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="309dp"
-            tools:layout_editor_absoluteY="136dp" />
+                <EditText
+                    android:id="@+id/txt_questionLevel"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
+                    android:inputType="number"
+                    android:textSize="28dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="205dp" />
 
-        <Button
-            android:id="@+id/btnPrev"
-            android:layout_width="75dp"
-            android:layout_height="45dp"
-            android:layout_row="3"
-            android:layout_column="1"
-            android:text="@string/prevQuestion"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="208dp"
-            tools:layout_editor_absoluteY="137dp" />
+                <Button
+                    android:layout_width="75dp"
+                    android:layout_height="45dp"
+                    android:text="@string/nextQuestion"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="309dp"
+                    tools:layout_editor_absoluteY="136dp"
+                    android:visibility="invisible"/>
 
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:text="@string/questionLevl"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="328dp"
-            tools:layout_editor_absoluteY="205dp" />
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="75dp"
+                    android:layout_height="45dp"
+                    android:text="@string/nextQuestion"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="309dp"
+                    tools:layout_editor_absoluteY="136dp" />
 
-        <EditText
-            android:id="@+id/txt_questionLevel"
-            android:layout_width="50sp"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:imeOptions="actionSend"
-            android:inputType="number"
-            android:textSize="28dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="205dp" />
+                <EditText
+                    android:id="@+id/txt_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
+                    android:inputType="text"
+                    android:textSize="28sp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="205dp" />
 
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="4"
-            android:layout_column="1"
-            android:text="@string/theQueston"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="328dp"
-            tools:layout_editor_absoluteY="205dp" />
+                <EditText
+                    android:id="@+id/txt_ans1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
+                    android:inputType="text"
+                    android:textSize="28sp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="307dp" />
 
-        <EditText
-            android:id="@+id/txt_question"
-            android:layout_width="271dp"
-            android:layout_height="wrap_content"
-            android:layout_row="4"
-            android:layout_column="0"
-            android:imeOptions="actionSend"
-            android:inputType="text"
-            android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="205dp" />
+                <EditText
+                    android:id="@+id/txt_ans2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
+                    android:inputType="text"
+                    android:textSize="28sp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="254dp" />
 
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="5"
-            android:layout_column="1"
-            android:text="@string/correctAnswer"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="300dp"
-            tools:layout_editor_absoluteY="254dp" />
+                <EditText
+                    android:id="@+id/txt_ans3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionSend"
+                    android:inputType="text"
+                    android:textSize="28sp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="364dp" />
 
-        <EditText
-            android:id="@+id/txt_ans2"
-            android:layout_width="274dp"
-            android:layout_height="wrap_content"
-            android:layout_row="6"
-            android:layout_column="0"
-            android:imeOptions="actionSend"
-            android:inputType="text"
-            android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="254dp" />
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="75dp"
+                    android:layout_height="45dp"
+                    android:text="@string/deleteQuestion"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="104dp"
+                    tools:layout_editor_absoluteY="467dp" />
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="6"
-            android:layout_column="1"
-            android:text="@string/answer2"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="351dp"
-            tools:layout_editor_absoluteY="307dp" />
+            </LinearLayout>
+        </RelativeLayout>
 
-        <EditText
-            android:id="@+id/txt_ans1"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:imeOptions="actionSend"
-            android:inputType="text"
-            android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="307dp" />
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.2">
 
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="7"
-            android:layout_column="1"
-            android:text="@string/answer3"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="352dp"
-            tools:layout_editor_absoluteY="364dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="490dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txt_ans3"
-            android:layout_width="272sp"
-            android:layout_height="wrap_content"
-            android:layout_row="7"
-            android:layout_column="0"
-            android:imeOptions="actionSend"
-            android:inputType="text"
-            android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="364dp" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:text="@string/questionNumber"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="321dp"
+                    tools:layout_editor_absoluteY="95dp" />
 
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="75dp"
-            android:layout_height="45dp"
-            android:layout_row="8"
-            android:layout_column="1"
-            android:text="@string/updateQuestion"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="467dp" />
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:text="@string/questionLevl"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="328dp"
+                    tools:layout_editor_absoluteY="205dp" />
 
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="75dp"
-            android:layout_height="45dp"
-            android:layout_row="8"
-            android:layout_column="0"
-            android:text="@string/deleteQuestion"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="104dp"
-            tools:layout_editor_absoluteY="467dp" />
+                <Button
+                    android:id="@+id/btnShow"
+                    android:layout_width="75dp"
+                    android:layout_height="45dp"
+                    android:text="@string/show"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="309dp"
+                    tools:layout_editor_absoluteY="136dp" />
 
-    </GridLayout>
+                <Button
+                    android:id="@+id/btnPrev"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prevQuestion"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="208dp"
+                    tools:layout_editor_absoluteY="137dp" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:text="@string/theQueston"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="328dp"
+                    tools:layout_editor_absoluteY="205dp" />
+
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="57dp"
+                    android:text="@string/correctAnswer"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="300dp"
+                    tools:layout_editor_absoluteY="254dp" />
+
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="71dp"
+                    android:layout_height="64dp"
+                    android:text="@string/answer2"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="351dp"
+                    tools:layout_editor_absoluteY="307dp" />
+
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="69dp"
+                    android:layout_height="56dp"
+                    android:text="@string/answer3"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="352dp"
+                    tools:layout_editor_absoluteY="364dp" />
+
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="75dp"
+                    android:layout_height="45dp"
+                    android:text="@string/updateQuestion"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="219dp"
+                    tools:layout_editor_absoluteY="467dp" />
+
+
+            </LinearLayout>
+            <!-- 70% Width End-->
+
+        </RelativeLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
