@@ -7,8 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.google.android.gms.common.internal.safeparcel.SafeParcelable.NULL;
-
 public class EndGameActivity extends AppCompatActivity {
     private TextView mCorrect;
     private TextView mWrong;

@@ -12,22 +12,11 @@
         android:layoutDirection="rtl">
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nextQuestion"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/questionNumber"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="309dp"
-        tools:layout_editor_absoluteY="97dp" />
+        tools:ignore="MissingConstraints"/>
 
         <EditText
             android:id="@+id/txt_level"
@@ -35,18 +24,14 @@
             android:layout_height="65dp"
             android:ems="10"
             android:inputType="numberDecimal"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="238dp"
-            tools:layout_editor_absoluteY="95dp" />
+            tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/theQueston"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="329dp"
-        tools:layout_editor_absoluteY="146dp" />
+        tools:ignore="MissingConstraints"/>
 
         <EditText
             android:id="@+id/txt_question"
@@ -55,18 +40,14 @@
             android:imeOptions="actionSend"
             android:inputType="text"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="139dp" />
+            tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/theCoreectAnswer"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="197dp" />
+        tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/txt_ans1"
@@ -75,18 +56,14 @@
             android:imeOptions="actionSend"
             android:inputType="text"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="197dp" />
+            tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/answer2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="352dp"
-        tools:layout_editor_absoluteY="249dp" />
+        tools:ignore="MissingConstraints"/>
 
         <EditText
             android:id="@+id/txt_ans2"
@@ -95,18 +72,14 @@
             android:imeOptions="actionSend"
             android:inputType="text"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="249dp" />
+            tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/answer3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="352dp"
-        tools:layout_editor_absoluteY="303dp" />
+        tools:ignore="MissingConstraints"/>
 
         <EditText
             android:id="@+id/txt_ans3"
@@ -115,18 +88,14 @@
             android:imeOptions="actionSend"
             android:inputType="text"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="303dp" />
+            tools:ignore="MissingConstraints"/>
 
         <Button
             android:id="@+id/btnSend"
             android:layout_width="81dp"
             android:layout_height="wrap_content"
             android:text="@string/send"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="184dp"
-            tools:layout_editor_absoluteY="418dp" />
+            tools:ignore="MissingConstraints"/>
 
     </LinearLayout>
 

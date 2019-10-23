@@ -5,6 +5,9 @@
     <string name="wrong">wrong</string>
     <string name="life">life</string>
     <string name="level">level</string>
+    <string name="level1">1</string>
+    <string name="level2">2</string>
+    <string name="level3">3</string>
     <string name="questionSize">questionSize</string>
     <string name="bigText">1</string>
     <string name="questions">questions</string>

@@ -15,17 +15,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:ignore="MissingConstraints"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="67dp"
         tools:ignore="MissingConstraints" />
 
         <EditText
@@ -35,18 +31,14 @@
             android:imeOptions="actionSend"
             android:inputType="textEmailAddress"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="107dp"
-            tools:layout_editor_absoluteY="67dp" />
+            tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="119dp" />
+        tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/txt_password"
@@ -55,18 +47,14 @@
             android:imeOptions="actionSend"
             android:inputType="textPassword"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="107dp"
-            tools:layout_editor_absoluteY="119dp" />
+            tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password_again"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="165dp" />
+        tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/txt_passwordAgain"
@@ -75,18 +63,14 @@
             android:imeOptions="actionSend"
             android:inputType="textPassword"
             android:textSize="28sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="107dp"
-            tools:layout_editor_absoluteY="165dp" />
+            tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnSend"
         android:layout_width="86dp"
         android:layout_height="42dp"
         android:text="@string/send"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="233dp" />
+        tools:ignore="MissingConstraints" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

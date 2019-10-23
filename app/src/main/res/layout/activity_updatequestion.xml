@@ -29,9 +29,7 @@
                     android:imeOptions="actionSend"
                     android:inputType="number"
                     android:textSize="28sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="205dp"/>
+                    tools:ignore="MissingConstraints"/>
 
                 <EditText
                     android:id="@+id/txt_questionLevel"
@@ -40,17 +38,13 @@
                     android:imeOptions="actionSend"
                     android:inputType="number"
                     android:textSize="28dp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="205dp" />
+                    tools:ignore="MissingConstraints"/>
 
                 <Button
                     android:layout_width="75dp"
                     android:layout_height="45dp"
                     android:text="@string/nextQuestion"
                     tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="309dp"
-                    tools:layout_editor_absoluteY="136dp"
                     android:visibility="invisible"/>
 
                 <Button
@@ -58,9 +52,7 @@
                     android:layout_width="75dp"
                     android:layout_height="45dp"
                     android:text="@string/nextQuestion"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="309dp"
-                    tools:layout_editor_absoluteY="136dp" />
+                    tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/txt_question"
@@ -69,9 +61,7 @@
                     android:imeOptions="actionSend"
                     android:inputType="text"
                     android:textSize="28sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="205dp" />
+                    tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/txt_ans1"
@@ -80,9 +70,7 @@
                     android:imeOptions="actionSend"
                     android:inputType="text"
                     android:textSize="28sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="307dp" />
+                    tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/txt_ans2"
@@ -91,9 +79,7 @@
                     android:imeOptions="actionSend"
                     android:inputType="text"
                     android:textSize="28sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="254dp" />
+                    tools:ignore="MissingConstraints" />
 
                 <EditText
                     android:id="@+id/txt_ans3"
@@ -102,18 +88,14 @@
                     android:imeOptions="actionSend"
                     android:inputType="text"
                     android:textSize="28sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="364dp" />
+                    tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btnDelete"
                     android:layout_width="75dp"
                     android:layout_height="45dp"
                     android:text="@string/deleteQuestion"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="104dp"
-                    tools:layout_editor_absoluteY="467dp" />
+                    tools:ignore="MissingConstraints" />
 
             </LinearLayout>
         </RelativeLayout>

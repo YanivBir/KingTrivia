@@ -17,79 +17,60 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/correctAnswers"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="312dp"
-            tools:layout_editor_absoluteY="107dp" />
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/txtCorrect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="99"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="262dp"
-            tools:layout_editor_absoluteY="107dp"/>
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/wrongAnswers"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="310dp"
-            tools:layout_editor_absoluteY="150dp"/>
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/txtUnCorrect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="262dp"
-            tools:layout_editor_absoluteY="150dp" />
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="32dp"
             android:layout_height="23dp"
             android:text="@string/lives"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="363dp"
-            tools:layout_editor_absoluteY="191dp"/>
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/txtLife"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="262dp"
-            tools:layout_editor_absoluteY="191dp" />
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/finalScore"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="327dp"
-            tools:layout_editor_absoluteY="232dp" />
+            tools:ignore="MissingConstraints"/>
 
         <TextView
             android:id="@+id/txtAllGrades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="262dp"
-            tools:layout_editor_absoluteY="232dp" />
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/btnHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/returnHome"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="304dp" />
-
+            tools:ignore="MissingConstraints"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

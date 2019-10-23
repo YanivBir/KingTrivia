@@ -25,8 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/addNewQuestion"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="90dp"
         tools:ignore="MissingConstraints" />
 
         <Button
@@ -34,9 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/updateOrDelQuestion"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="306dp"
-            tools:layout_editor_absoluteY="152dp" />
+            tools:ignore="MissingConstraints" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

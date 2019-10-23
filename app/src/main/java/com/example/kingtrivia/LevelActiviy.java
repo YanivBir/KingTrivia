@@ -59,7 +59,7 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("level", "1");
+                bundle.putString("level",  getResources().getString(R.string.level1));
                 if (switchBtn.isChecked())
                     bundle.putString(getResources().getString(R.string.questionSize), "1");
                 else
@@ -75,7 +75,7 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(getResources().getString(R.string.level), "2");
+                bundle.putString(getResources().getString(R.string.level), getResources().getString(R.string.level2));
                 if (switchBtn.isChecked())
                     bundle.putString(getResources().getString(R.string.questionSize), "1");
                 else
@@ -91,7 +91,7 @@ public class LevelActiviy extends AppCompatActivity{
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(getResources().getString(R.string.level), "3");
+                bundle.putString(getResources().getString(R.string.level), getResources().getString(R.string.level3));
                 if (switchBtn.isChecked())
                     bundle.putString(getResources().getString(R.string.questionSize), "1");
                 else
