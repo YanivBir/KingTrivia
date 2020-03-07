@@ -1,6 +1,6 @@
 # KingTrivia
 
-An Android trivia game developing in Java that includes questions from a variety of areas.
+An Android trivia game implement in Java that includes questions from a variety of areas.
 
 The game includes questions in three levels
 * Easy
