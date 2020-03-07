@@ -1,14 +1,16 @@
 # KingTrivia
 
-Developing a trivia game that includes questions from a variety of areas.
+An Android trivia game developing in Java that includes questions from a variety of areas.
 
-The game include questions in three levels
+The game includes questions in three levels
 * Easy
 * Medium
 * Hard
 
-The player should choose one of the above level and start to play.
+The player choose one of the above level and start to play.
 
-For each level 
+For each level there is a dedicated life.
 
-Android course final project
+The game reads the questions for an external db.
+
+An admin can update an exsiting question or create a new question.
