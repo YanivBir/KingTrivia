@@ -7,9 +7,11 @@ The game includes questions in three levels
 * Medium
 * Hard
 The player choose one of the above level and start to play.
+
 For each level there is a dedicated life.
 
 The game reads the questions for an external db.
+
 An admin can update an exsiting question or create a new question.
 
 **Game Sequence Diagram:**
