@@ -13,6 +13,3 @@ For each level there is a dedicated life.
 The game reads the questions for an external db.
 
 An admin can update an exsiting question or create a new question.
-
-**Game Sequence Diagram:**
-![seqDiag](https://github.com/YanivBir/KingTrivia/blob/master/AdditionalFiles/sequenceDiagram.jpg)
