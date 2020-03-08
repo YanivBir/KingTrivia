@@ -6,6 +6,7 @@ The game includes questions in three levels
 * Easy
 * Medium
 * Hard
+
 The player choose one of the above level and start to play.
 
 For each level there is a dedicated life.
