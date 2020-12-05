@@ -1,4 +1,4 @@
-# KingTrivia
+# Trivia-app
 
 An Android trivia game implement in Java that includes questions from a variety of areas.
 
